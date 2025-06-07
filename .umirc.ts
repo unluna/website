@@ -31,5 +31,13 @@ export default defineConfig({
     },
   ],
   npmClient: 'pnpm',
+  proxy: {
+    '/api': {
+      target: 'https://website-worker.729769298.workers.dev',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api': '',
+      },
+    },
+  },
 });
-
